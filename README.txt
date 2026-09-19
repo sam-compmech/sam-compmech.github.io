@@ -1,4 +1,4 @@
-SAM MOOSAVI - SIMPLE ABAQUS PORTFOLIO
+SAM MOUSAVI - SIMPLE ABAQUS PORTFOLIO
 
 1. Open index.html in a browser to preview the website.
 2. Replace YOUR_EMAIL@example.com, YOUR_GITHUB and YOUR_LINKEDIN in index.html.
