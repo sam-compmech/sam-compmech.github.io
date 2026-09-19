@@ -1,23 +1,40 @@
-SAM MOUSAVI - SIMPLE ABAQUS PORTFOLIO
+UPLOAD INSTRUCTIONS
+===================
 
-1. Open index.html in a browser to preview the website.
-2. Replace YOUR_EMAIL@example.com, YOUR_GITHUB and YOUR_LINKEDIN in index.html.
-3. Put your Abaqus images in the images/ folder.
-4. Replace the grey placeholder boxes with your images.
-5. The first detailed project page is:
-   projects/suture-rve/index.html
+This package is the complete first-project website package.
 
-GITHUB PAGES
-Create a GitHub repository named:
-YOURUSERNAME.github.io
+FILES
+-----
+index.html
+style.css
+projects/face-suture/index.html
+projects/face-suture/images/face-fe-model.png
+projects/face-suture/images/barbed-suture-model.png
+projects/face-suture/images/umat-verification.png
 
-Upload all files and folders from this package.
-Then go to:
-Repository -> Settings -> Pages
-Choose "Deploy from a branch", select the main branch and the root folder.
-Save.
+The PNGs are the original images supplied by the user. No AI-generated project
+images are used in the website package.
 
-Your website should then be available at:
-https://YOURUSERNAME.github.io
+IMPORTANT
+---------
+The Face–Suture Interaction duration is set to 2025 – Present.
 
-You can later connect a custom domain.
+The barbed-suture and UMAT images are explicitly described as related examples,
+not as direct quantitative results of the face–suture model.
+
+The Results section intentionally contains a placeholder until actual results
+and plots are supplied.
+
+GITHUB
+------
+If your repository is YOURUSERNAME.github.io:
+
+1. Back up your existing site.
+2. Replace the root index.html and style.css with these versions.
+3. Upload the projects folder exactly as provided.
+4. Replace YOUR_EMAIL, YOUR_GITHUB and YOUR_LINKEDIN in index.html.
+5. Replace YOUR_GITHUB in projects/face-suture/index.html.
+6. Commit changes.
+
+The project page will be:
+https://YOURUSERNAME.github.io/projects/face-suture/

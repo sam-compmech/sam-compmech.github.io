@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Face–Suture Interaction | Sam Moosavi</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<header class="site-header"><div class="container nav"><a class="logo" href="../../index.html">SAM MOOSAVI</a>
+<nav><a href="../../index.html#about">About</a><a href="../../index.html#projects">Projects</a><a href="../../index.html#skills">Skills</a><a href="../../index.html#contact">Contact</a></nav>
+</div></header>
+
+<section class="project-hero"><div class="container">
+<a class="back" href="../../index.html#projects">← Back to Projects</a>
+<div class="project-hero-grid"><div>
+<p class="eyebrow">ABAQUS · PYTHON · COMPUTATIONAL BIOMECHANICS</p>
+<h1>Face–Suture Interaction</h1>
+<p class="lead">Nonlinear finite element modeling of the interaction between facial soft tissue and surgical sutures.</p>
+<div class="tags"><span>Abaqus</span><span>Python</span><span>Soft Tissue</span><span>Contact</span></div>
+</div>
+<div class="hero-image"><img src="images/face-fe-model.png" alt="Abaqus finite element model of facial soft tissue with suture loading"></div>
+</div></div></section>
+
+<section class="section"><div class="container project-layout"><div class="main-column">
+
+<section><p class="section-label">01 · PROJECT OVERVIEW</p><h2>Finite element investigation of facial tissue–suture interaction</h2>
+<p>This project investigates the mechanical interaction between facial soft tissue and surgical sutures using nonlinear finite element analysis. The model is used to examine deformation and stress response around the suture region under prescribed loading and boundary conditions.</p>
+<p>The work combines three-dimensional FE modeling, nonlinear material behavior, contact treatment, and Abaqus-based numerical post-processing.</p></section>
+
+<section><p class="section-label">02 · FINITE ELEMENT MODEL</p><h2>Facial soft-tissue model</h2>
+<figure class="figure"><img src="images/face-fe-model.png" alt="User supplied Abaqus facial finite element model"><figcaption>Figure 1. Abaqus finite element model of the facial soft-tissue region with suspension-suture loading and boundary conditions.</figcaption></figure></section>
+
+<section><p class="section-label">03 · MODEL DEVELOPMENT</p>
+<div class="technical-box"><ul>
+<li><strong>Geometry:</strong> Three-dimensional facial soft-tissue model with a suture representation.</li>
+<li><strong>Elements:</strong> C3D8R / C3D8RH, depending on the model formulation.</li>
+<li><strong>Soft-tissue material:</strong> Hyperelastic Yeoh formulation.</li>
+<li><strong>Suture material:</strong> Linear-elastic polymeric suture representation.</li>
+<li><strong>Interaction:</strong> Surface-to-surface contact where applicable.</li>
+<li><strong>Boundary conditions:</strong> Prescribed constraints and loading applied to selected regions.</li>
+<li><strong>Analysis:</strong> Nonlinear static analysis with large-deformation effects (NLGEOM).</li>
+</ul></div></section>
+
+<section><p class="section-label">04 · RELATED SUTURE MODELING</p><h2>Barbed suture representation</h2>
+<figure class="figure"><img src="images/barbed-suture-model.png" alt="User supplied Abaqus barbed suture model"><figcaption>Figure 2. Finite element representation of a barbed suture geometry.</figcaption></figure>
+<p class="note">This image is included as a related suture-modeling example and is not presented as a quantitative result of the facial model.</p></section>
+
+<section><p class="section-label">05 · COMPUTATIONAL WORKFLOW</p><h2>Abaqus and Python workflow</h2>
+<div class="workflow">
+<div><span>01</span><strong>Geometry &amp; mesh</strong><small>Build and discretize the model</small></div>
+<div><span>02</span><strong>Materials</strong><small>Define tissue and suture behavior</small></div>
+<div><span>03</span><strong>Interactions &amp; BCs</strong><small>Apply contact, constraints and loading</small></div>
+<div><span>04</span><strong>Analysis</strong><small>Run nonlinear simulations</small></div>
+<div><span>05</span><strong>Post-processing</strong><small>Extract and interpret response</small></div>
+</div></section>
+
+<section><p class="section-label">06 · CONSTITUTIVE MODEL VERIFICATION</p><h2>User-material verification example</h2>
+<figure class="figure"><img src="images/umat-verification.png" alt="User supplied Abaqus UMAT verification model"><figcaption>Figure 3. Abaqus verification model used for constitutive/user-material implementation testing; the displayed result shows the von Mises stress field.</figcaption></figure>
+<p class="note">This verification image documents the broader computational mechanics workflow; it is not presented as a direct result of the face–suture model.</p></section>
+
+<section><p class="section-label">07 · RESULTS</p><h2>Quantitative evaluation</h2>
+<p>The project can be extended through systematic extraction of stress, strain, displacement, reaction-force, and other response measures to quantify the effect of suture configuration and loading.</p>
+<div class="result-placeholder"><strong>Results area</strong><span>Add your actual stress–strain curves, displacement contours, reaction-force data, mesh-convergence plots, or stiffness results here.</span></div></section>
+
+<section><p class="section-label">08 · TECHNICAL SKILLS</p>
+<div class="skill-tags"><span>Nonlinear FEA</span><span>Abaqus/Standard</span><span>Python</span><span>Hyperelasticity</span><span>Contact Mechanics</span><span>Soft Tissue</span><span>Suture Modeling</span><span>FE Post-processing</span></div></section>
+
+</div>
+<aside class="sidebar">
+<div class="side-card"><h3>Project Information</h3>
+<div class="info-item"><strong>Duration</strong><span>2025 – Present</span></div>
+<div class="info-item"><strong>Software</strong><span>Abaqus / Python</span></div>
+<div class="info-item"><strong>Focus</strong><span>Facial soft tissue, sutures, nonlinear FE analysis</span></div>
+<div class="info-item"><strong>Methods</strong><span>Hyperelasticity, contact, nonlinear static analysis</span></div>
+</div>
+<div class="side-card"><h3>Technical Skills</h3><div class="skill-tags"><span>Abaqus</span><span>Python</span><span>FEA</span><span>Contact</span><span>Biomechanics</span></div></div>
+<div class="side-card"><h3>Project Files</h3><p>Source scripts, input files, and additional numerical results can be linked here when they are ready for publication.</p><a class="button small" href="https://github.com/YOUR_GITHUB">GitHub →</a></div>
+<div class="side-card"><h3>Research direction</h3><p>The project can be extended toward parametric suture configurations, homogenization, patient-specific geometry, and quantitative comparison of tissue response.</p></div>
+</aside></div></section>
+
+<footer><div class="container footer-flex"><p>© 2026 Sam Moosavi · Computational Mechanics Portfolio</p><a href="../../index.html#projects">Back to Projects ↑</a></div></footer>
+</body></html>
