@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thermomechanical Contact in Emergency Braking | Sam Mousavi</title>
+<meta name="description" content="Ansys APDL transient thermomechanical simulation of a pad-disk braking contact, with hot bands, cyclic plasticity, and Manson-Coffin fatigue life.">
+<style>
+  :root{
+    --navy:#0d1b2a;
+    --ink:#1b2430;
+    --muted:#5b6a7a;
+    --line:#e3e7ec;
+    --bg:#ffffff;
+    --panel:#f6f8fa;
+    --accent:#2f6fed;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e7ebf0; --muted:#9aa7b5; --line:#2a3644; --bg:#0f151d; --panel:#151d27; --navy:#0d1b2a;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#e7ebf0; --muted:#9aa7b5; --line:#2a3644; --bg:#0f151d; --panel:#151d27; --navy:#0d1b2a;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  a{color:inherit;}
+  .wrap{max-width:780px;margin:0 auto;padding:0 24px;}
+
+  header.site{background:var(--navy);color:#fff;top:0;position:sticky;padding-top:env(safe-area-inset-top,0px);}
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .brand{font-weight:700;letter-spacing:.04em;font-size:13px;}
+  nav.site a{font-size:13px;margin-left:22px;color:#c8d3e0;text-decoration:none;}
+
+  .back{display:inline-block;margin:22px 0 0;font-size:13px;color:var(--muted);text-decoration:none;}
+
+  main{padding:20px 0 60px;}
+  .eyebrow{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+  h1{font-size:28px;line-height:1.2;margin:10px 0 12px;letter-spacing:-0.01em;}
+  .lede{font-size:16px;color:var(--muted);margin:0 0 16px;max-width:600px;}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;}
+  .tag{font-size:11.5px;padding:4px 9px;border:1px solid var(--line);border-radius:20px;color:var(--muted);}
+
+  figure{margin:0 0 10px;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;background:#000;}
+  figcaption{font-size:12px;color:var(--muted);margin-top:7px;}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:26px;}
+  .stat{background:var(--panel);padding:14px 12px;text-align:center;}
+  .stat .n{font-size:16px;font-weight:700;letter-spacing:-0.01em;}
+  .stat .l{font-size:11px;color:var(--muted);margin-top:3px;}
+
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 10px;font-weight:600;}
+  p.body{font-size:15px;color:var(--ink);margin:0 0 28px;}
+
+  .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;}
+  @media (max-width:520px){.img-grid{grid-template-columns:1fr;}}
+
+  .meta{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid var(--line);padding-top:20px;margin-top:6px;}
+  .meta div b{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px;font-weight:600;}
+  .meta div span{font-size:14px;}
+
+  footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:12.5px;text-align:center;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">SAM MOUSAVI</div>
+    <nav class="site">
+      <a href="https://sam-compmech.github.io/index.html#about">About</a>
+      <a href="https://sam-compmech.github.io/index.html#projects">Projects</a>
+      <a href="https://sam-compmech.github.io/index.html#skills">Skills</a>
+      <a href="https://sam-compmech.github.io/index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <a class="back" href="https://sam-compmech.github.io/index.html#projects">&larr; Back to Projects</a>
+
+  <main>
+    <div class="eyebrow">ANSYS APDL &middot; CONTACT MECHANICS &middot; THERMOMECHANICAL COUPLING</div>
+    <h1>Thermomechanical Contact in Emergency Braking</h1>
+    <p class="lede">Transient, coupled thermal-structural finite element simulation of a train brake pad&ndash;disk contact, from frictional heat generation and hot-banding to cyclic plasticity and fatigue life.</p>
+    <div class="tags">
+      <span class="tag">Ansys APDL</span>
+      <span class="tag">Thermal-Structural Coupling</span>
+      <span class="tag">Contact Mechanics</span>
+      <span class="tag">Manson&ndash;Coffin Fatigue</span>
+    </div>
+
+    <figure>
+      <img src="images/hot-bands-temperature-t44s.png" alt="Ansys temperature field showing hot-band localization on the brake disk at t=44s">
+      <figcaption>Temperature field at t&nbsp;=&nbsp;44&nbsp;s &mdash; the classic hot-band pattern emerging from edge heat dissipation.</figcaption>
+    </figure>
+
+    <div class="stats">
+      <div class="stat"><div class="n">320 &rarr; 0 km/h</div><div class="l">simulated emergency stop</div></div>
+      <div class="stat"><div class="n">Hot bands</div><div class="l">from non-uniform thermal strain</div></div>
+      <div class="stat"><div class="n">3 cycles</div><div class="l">braking/cooling, cumulative plasticity</div></div>
+    </div>
+
+    <h2>Abstract</h2>
+    <p class="body">
+      This project models the thermomechanical behavior of a train brake pad&ndash;disk contact
+      during emergency braking, using a 2D-axisymmetric APDL model in Ansys with strongly
+      coupled structural&ndash;thermal elements. An initial train speed of 320&nbsp;km/h is
+      brought to a full stop, with the disk's temperature-dependent elastic&ndash;plastic
+      material behavior (multilinear kinematic hardening) capturing how heat softens the disk
+      as braking proceeds. The results show a self-reinforcing thermomechanical feedback loop:
+      non-uniform cooling at the disk edges produces non-uniform thermal strain, which
+      concentrates contact pressure and heat flux into two "hot bands," peaking around the
+      midpoint of the braking event before decaying as wear homogenizes the contact surface.
+      Residual tensile stresses left behind after cool-down are identified as the most critical
+      failure driver, motivating a follow-up study of contact thermal resistance (which
+      suppresses the tensile residual stress) and a three-cycle repeated-braking case used to
+      estimate low-cycle fatigue life via the Manson&ndash;Coffin relation.
+    </p>
+
+    <h2>Simulation results</h2>
+    <div class="img-grid">
+      <figure>
+        <img src="images/pad-disk-mesh.png" alt="Ansys hexahedral mesh of the 2D axisymmetric pad-disk model">
+        <figcaption>2D-axisymmetric hexahedral mesh of the pad&ndash;disk contact model.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/temperature-field-t89s.png" alt="Temperature field at the end of braking, t=89s">
+        <figcaption>Temperature field at t&nbsp;=&nbsp;89&nbsp;s, end of braking &mdash; wear has homogenized the contact surface.</figcaption>
+      </figure>
+    </div>
+    <div class="img-grid">
+      <figure>
+        <img src="images/stress-sx-t89s.png" alt="Radial stress distribution at the end of braking">
+        <figcaption>Radial stress (&sigma;&middot;e&#8347;) at t&nbsp;=&nbsp;89&nbsp;s, showing localized peaks at the contact edges.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/vonmises-3cycles.png" alt="Von Mises stress evolution at the hottest node over three braking and cooling cycles">
+        <figcaption>Von Mises stress at the hottest node over three braking/cooling cycles &mdash; peak stress rises each cycle.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Fatigue life estimate</h2>
+    <p class="body">
+      Using the elastic and plastic strain amplitudes extracted from the three-cycle simulation,
+      the Manson&ndash;Coffin low-cycle fatigue relation was fit to estimate the number of
+      braking cycles the disk could sustain before crack initiation &mdash; on the order of
+      500 cycles for this loading case, underscoring how residual tensile stress from repeated
+      emergency braking can become the dominant fatigue-life limiter.
+    </p>
+    <figure>
+      <img src="images/manson-coffin-curve.png" alt="Manson-Coffin fatigue curve used to estimate cycles to failure from elastic and plastic strain amplitude">
+      <figcaption>Manson&ndash;Coffin curve: total, elastic, and plastic strain amplitude vs. cycles to failure.</figcaption>
+    </figure>
+
+    <div class="meta">
+      <div><b>Software</b><span>Ansys Mechanical APDL</span></div>
+      <div><b>Methods</b><span>Transient coupled-field contact, Augmented Lagrangian, multilinear kinematic hardening</span></div>
+      <div><b>Focus</b><span>Frictional heat generation, hot-band instability, low-cycle fatigue</span></div>
+      <div><b>Materials</b><span>Temperature-dependent disk (elastic&ndash;plastic), pad</span></div>
+    </div>
+  </main>
+</div>
+
+<footer>&copy; 2026 Sam Mousavi &middot; Computational Mechanics Portfolio</footer>
+
+</body>
+</html>
